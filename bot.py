@@ -9,6 +9,8 @@ LINK = "https://icp.administracionelectronica.gob.es/icpplus/index.html"
 def avisar(m):
     requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage", data={"chat_id": CHAT_ID, "text": m})
 
+avisar("Bot conectado - Navarra, Barcelona, Madrid - cada 3 minutos")
+
 try:
     r = requests.get(LINK, timeout=20, headers={"User-Agent": "Mozilla/5.0"}, verify=False)
     texto = r.text.lower()
