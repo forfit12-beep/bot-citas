@@ -7,7 +7,6 @@ TOKEN = os.environ.get("TELEGRAM_TOKEN")
 CHAT_ID = os.environ.get("CHAT_ID")
 LINK = "https://icp.administracionelectronica.gob.es/icpplus/index.html"
 
-# MINI PAGINA WEB PARA QUE RENDER GRATIS NO SE QUEDE ATASCADO
 class H(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
@@ -26,11 +25,12 @@ def avisar(mensaje):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     try:
         requests.post(url, data={"chat_id": CHAT_ID, "text": mensaje}, timeout=10)
+        print("Aviso enviado")
     except Exception as e:
         print(e)
 
 avisar("Bot conectado - Navarra, Barcelona, Madrid - Huellas + Recogida TIE")
-print("Bot encendido")
+print("Bot encendido - cada 3 minutos")
 
 while True:
     try:
@@ -48,5 +48,6 @@ while True:
                 avisar("HAY CITA POSIBLE en Navarra / Barcelona / Madrid - Entra ya: " + LINK)
     except Exception as e:
         print("Error:", e)
-    print("Espero 60 segundos")
-    time.sleep(60)
+
+    print("Espero 3 minutos")
+    time.sleep(180)
