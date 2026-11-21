@@ -4,8 +4,8 @@ urllib3.disable_warnings()
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import threading
 
-TOKEN = os.environ.get("TELEGRAM_TOKEN")
-CHAT_ID = os.environ.get("CHAT_ID")
+TOKEN = os.environ.get("9123991972:AAHngHY1FGqiAeVUEvjLdU5pMEjM3VRqURg")
+CHAT_ID = os.environ.get("6998750482")
 LINK = "https://icp.administracionelectronica.gob.es/icpplus/index.html"
 
 # SOLO TUS 5 PROVINCIAS
